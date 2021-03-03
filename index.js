@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 const server = http.createServer((req, res) => {
-    const fileName = path.join(process.cwd(), `web//${req.url}`)
+    const fileName = path.join(process.cwd(), `web\\${req.url}`)
     try{
      stat = fs.lstatSync(fileName)
     }catch{
@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
     })
     return
 }else if(stat.isDirectory()){
-    res.writeHead(302, {"Location" : "/index.html"})
+    res.writeHead(302, {"Location" : "index.html"})
     res.end
 }
 })
